@@ -1,0 +1,12 @@
+﻿<Window
+    x:Class="PassGuard.Views.Windows.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="PassGuard"
+    Width="1280"
+    Height="760"
+    Background="{StaticResource WindowBrush}"
+    WindowStartupLocation="CenterScreen">
+
+    <Grid />
+</Window>
