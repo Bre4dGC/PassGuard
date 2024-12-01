@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="PassGuard.Views.Pages.Login.AuthenticationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:comp="clr-namespace:PassGuard.Styles.Components"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PassGuard.Views.Pages.Login"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AuthenticationPage"
+    d:Background="{StaticResource WindowBrush}"
+    d:DesignHeight="290"
+    d:DesignWidth="450"
+    mc:Ignorable="d">
+
+    <Grid Margin="20" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <comp:DataInputField />
+            <comp:DataInputField />
+        </StackPanel>
+
+        <comp:SubmitButton
+            Grid.Row="1"
+            Command="{Binding AuthenticationCommand}"
+            Text="Login" />
+
+        <TextBlock
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            FontSize="14">
+            <Run Foreground="{StaticResource DisactiveFontBrush}" Text="Don't have an account?" />
+            <Hyperlink Command="{Binding RegistrationViewCommand}">Create</Hyperlink>
+        </TextBlock>
+    </Grid>
+</Page>
