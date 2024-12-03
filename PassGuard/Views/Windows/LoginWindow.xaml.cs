@@ -12,7 +12,7 @@ namespace PassGuard.Views.Windows
         public LoginWindow()
         {
             InitializeComponent();
-
+                        
             LoginFrame.Content = new AuthenticationPage();
         }
 
