@@ -1,5 +1,4 @@
-﻿using PassGuard.Views;
-using PassGuard.Views.Windows;
+﻿using PassGuard.Views.Windows;
 using System.Windows;
 
 namespace PassGuard
