@@ -1,24 +1,43 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using PassGuard.Views.Pages.Login;
+using PassGuard.Data;
+using PassGuard.Services;
+using PassGuard.Views.Windows;
+using System.Windows;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace PassGuard.ViewModels.Login
 {
-    class AuthenticationViewModel
+    class AuthenticationViewModel : BaseViewModel
     {
-        public ICommand RegistrationViewCommand { get; }
-        public ICommand AuthenticationCommand { get; }
-
-        public AuthenticationViewModel(NavigationService navigationService)
+        private string _name;
+        public string Name
         {
-            AuthenticationCommand = new RelayCommand(Authentication);
-            RegistrationViewCommand = new RelayCommand(() => navigationService.Navigate(new RegistrationPage()));
+            get { return _name; }
+            set { _name = value; OnPropertyChanged(); }
         }
 
-        private void Authentication()
+        private string _password;
+        public string Password
         {
+            get { return _password; }
+            set { _password = value; OnPropertyChanged(); }
+        }
 
+        private IUserService _userService = new UserService(new DbContextFactory());
+
+        public ICommand AuthenticationCommand { get; }
+
+        public AuthenticationViewModel()
+        {
+            AuthenticationCommand = new RelayCommand(Authentication);
+        }
+
+        private async void Authentication()
+        {
+            if(await _userService.Login(Name, Password))
+            {
+                new MainWindow().Show();
+            }
         }
     }
 }
