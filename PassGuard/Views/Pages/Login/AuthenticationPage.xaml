@@ -6,11 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PassGuard.Views.Pages.Login"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:PassGuard.ViewModels.Login"
     Title="AuthenticationPage"
     d:Background="{StaticResource WindowBrush}"
     d:DesignHeight="290"
     d:DesignWidth="450"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:AuthenticationViewModel />
+    </Page.DataContext>
 
     <Grid Margin="20" VerticalAlignment="Center">
         <Grid.RowDefinitions>
@@ -20,8 +25,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <comp:DataInputField />
-            <comp:DataInputField />
+            <comp:DataInputField Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+            <comp:DataInputField Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
         <comp:SubmitButton
@@ -34,7 +39,7 @@
             HorizontalAlignment="Center"
             FontSize="14">
             <Run Foreground="{StaticResource DisactiveFontBrush}" Text="Don't have an account?" />
-            <Hyperlink Command="{Binding RegistrationViewCommand}">Create</Hyperlink>
+            <Hyperlink Click="Hyperlink_Click">Create</Hyperlink>
         </TextBlock>
     </Grid>
 </Page>

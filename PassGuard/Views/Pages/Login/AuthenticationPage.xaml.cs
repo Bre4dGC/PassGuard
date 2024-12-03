@@ -1,5 +1,7 @@
 ﻿using PassGuard.ViewModels.Login;
+using PassGuard.Views.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace PassGuard.Views.Pages.Login
 {
@@ -11,8 +13,11 @@ namespace PassGuard.Views.Pages.Login
         public AuthenticationPage()
         {
             InitializeComponent();
+        }
 
-            DataContext = new AuthenticationViewModel(NavigationService);
+        private void Hyperlink_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegistrationPage());
         }
     }
 }

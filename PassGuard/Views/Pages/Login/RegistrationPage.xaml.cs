@@ -1,4 +1,4 @@
-﻿using PassGuard.ViewModels.Login;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace PassGuard.Views.Pages.Login
@@ -11,8 +11,11 @@ namespace PassGuard.Views.Pages.Login
         public RegistrationPage()
         {
             InitializeComponent();
-
-            DataContext = new RegistrationViewModel(NavigationService);
         }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthenticationPage());
+        }        
     }
 }
