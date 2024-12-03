@@ -11,7 +11,7 @@
 
     <UserControl.Resources>
         <Style TargetType="TextBox">
-            <Setter Property="Height" Value="45" />
+            <Setter Property="Height" Value="42" />
             <Setter Property="Margin" Value="0,5" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="15,0" />
@@ -30,7 +30,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <TextBox>
+        <TextBox x:Name="TextBox" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=UserControl}}">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10" />

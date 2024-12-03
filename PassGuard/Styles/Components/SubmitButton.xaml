@@ -11,8 +11,8 @@
 
     <UserControl.Resources>
         <Style TargetType="Button">
-            <Setter Property="Height" Value="50" />
-            <Setter Property="Margin" Value="0,20 0 10" />
+            <Setter Property="Height" Value="45" />
+            <Setter Property="Margin" Value="0,15 0 10" />
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
             <Setter Property="Command" Value="{Binding Command, RelativeSource={RelativeSource AncestorType=UserControl}}" />
